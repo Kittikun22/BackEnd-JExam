@@ -41,7 +41,7 @@ const createUser = (req, res) => {
                 if (err) {
                     console.log(err);
                 } else {
-                    db.query("INSERT INTO users_meta (user_id, grade, school, province, expectation, parentJob,cart, termCondition) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+                    db.query("INSERT INTO users_meta (user_id, grade, school, province, expectation, parentJob,cart, termCondition) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)"
                         , [result.insertId, grade, school, province, expectation, parentJob, cart, termCondition]
                         , (err, resmeta) => {
                             if (err) {
@@ -99,7 +99,7 @@ const Signin = (req, res) => {
                             school: result[0].school,
                             province: result[0].province,
                             dream1: result[0].dream1,
-                            dream2: result[0].dream2
+                            dream2: result[0].dream2,
                         }]
                         const cart = result[0].cart
                         res.json({ status: 'ok', message: userInfo, token, cart })
@@ -279,6 +279,21 @@ const ForgotPassword = (req, res) => {
     })
 }
 
+const paymentHistory = (req, res) => {
+    const user_id = req.body.user_id
+    
+    db.query('SELECT payment_id, transaction, amount, net_amount, payment_method, products, status, paid_at FROM payment WHERE user_id = 73',
+        user_id,
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result)
+            }
+        }
+    )
+}
+
 module.exports = {
     getUsers,
     createUser,
@@ -293,5 +308,6 @@ module.exports = {
     ForgotPassword,
     getAPassword,
     ChangePassword,
-    updateDreamFac
+    updateDreamFac,
+    paymentHistory
 };

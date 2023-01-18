@@ -15,7 +15,7 @@ const db = mysql.createConnection({
 // });
 
 const getAllProduct = (req, res) => {
-    db.query("SELECT * FROM products",
+    db.query("SELECT * FROM product_exam INNER JOIN products ON product_exam.product_id = products.id",
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -39,7 +39,7 @@ const getProduct = (req, res) => {
 
 const getProductInCart = (req, res) => {
     const product_id = req.body.product_id
-    db.query("SELECT * FROM products WHERE id in (?)",
+    db.query("SELECT * FROM product_exam INNER JOIN products ON product_exam.product_id = products.id WHERE product_id in (?)",
         [product_id],
         (err, result) => {
             if (err) {

@@ -16,7 +16,8 @@ const { getUsers,
     ForgotPassword,
     getAPassword,
     ChangePassword,
-    updateDreamFac } = require('../controllers/users-control')
+    updateDreamFac,
+    paymentHistory } = require('../controllers/users-control')
 
 const userRoute = express.Router()
 
@@ -34,5 +35,6 @@ userRoute.post('/forgotPassword', ForgotPassword)
 userRoute.post('/getAPassword', getAPassword)
 userRoute.put('/changePassword', ChangePassword)
 userRoute.put('/updateDreamFac', updateDreamFac)
+userRoute.post('/paymentHistory', paymentHistory)
 
 module.exports = userRoute

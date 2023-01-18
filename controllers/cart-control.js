@@ -22,7 +22,19 @@ const getCart = (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                console.log(result[0].cart);
+                res.json(result)
+            }
+        })
+}
+
+const getSelectedItem = (req, res) => {
+    const user_id = req.body.user_id
+    db.query("SELECT itemSelected FROM users_meta WHERE user_id = ?",
+        [user_id],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
                 res.json(result)
             }
         })
@@ -56,5 +68,6 @@ const getTest = (req, res) => {
 module.exports = {
     updateCart,
     getCart,
-    getTest
+    getTest,
+    getSelectedItem
 };
