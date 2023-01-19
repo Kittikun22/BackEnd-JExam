@@ -27,7 +27,7 @@ const getAllProduct = (req, res) => {
 
 const getProduct = (req, res) => {
     const product_id = req.params.product_id
-    db.query("SELECT * FROM products INNER JOIN category ON products.category_id=category.category_id INNER JOIN subject ON products.subject_id=subject.subject_id WHERE products.id=?", [product_id],
+    db.query("SELECT product_id, exams.exam_id, exam_info, exam_content, name, amount, detail, blueprint, pic, subject_name, category_name FROM product_exam INNER JOIN exams ON product_exam.exam_id=exams.exam_id INNER JOIN products ON product_exam.product_id=products.id INNER JOIN subject ON products.subject_id=subject.subject_id INNER JOIN category ON products.category_id=category.category_id WHERE product_exam.product_id=?", [product_id],
         (err, result) => {
             if (err) {
                 console.log(err);

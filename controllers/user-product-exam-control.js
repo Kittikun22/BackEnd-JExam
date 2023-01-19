@@ -27,10 +27,11 @@ const getUserProductAndExams = (req, res) => {
         })
 }
 
-const checkUserProductAndExams = (req, res) => {
+const UserProductAndExams = (req, res) => {
     const user_id = req.body.user_id
-    db.query("SELECT exams.exam_id, exams.exam_name, exams.exam_info, exams.exam_content, products.id, products.name, products.detail, products.blueprint, products.pic, products.category_id, products.subject_id FROM user_product_exam INNER JOIN products ON user_product_exam.product_id = products.id INNER JOIN exams ON user_product_exam.exam_id = exams.exam_id WHERE user_id=?",
-        [user_id],
+    const product_id = req.body.product_id
+    db.query("SELECT exams.exam_id, exams.exam_name, exams.exam_info, exams.exam_content, products.id as product_id, products.name, products.detail, products.blueprint, products.pic, products.category_id, products.subject_id FROM user_product_exam INNER JOIN products ON user_product_exam.product_id = products.id INNER JOIN exams ON user_product_exam.exam_id = exams.exam_id WHERE user_id=? AND product_id=?",
+        [user_id, product_id],
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -42,5 +43,5 @@ const checkUserProductAndExams = (req, res) => {
 
 module.exports = {
     getUserProductAndExams,
-    checkUserProductAndExams
+    UserProductAndExams
 };
