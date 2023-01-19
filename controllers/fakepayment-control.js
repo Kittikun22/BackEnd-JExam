@@ -7,6 +7,13 @@ const db = mysql.createConnection({
     database: "jknowledge-exam"
 });
 
+// const db = mysql.createConnection({
+//     user: "jknowled_jexam",
+//     host: "localhost",
+//     password: "JHriAJzc6f",
+//     database: "jknowled_jexam"
+// });
+
 const fakepay = (req, res) => {
     const payment_id = req.body.payment_id
     const user_id = req.body.user_id

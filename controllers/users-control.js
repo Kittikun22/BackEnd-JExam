@@ -139,17 +139,6 @@ const authToken = (req, res) => {
     }
 }
 
-const getUsers = (req, res) => {
-    db.query("SELECT * FROM users", (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.send(result);
-        }
-    });
-};
-
-
 const getAUser = (req, res) => {
     const user_id = req.params.user_id;
     db.query("SELECT * FROM users INNER JOIN users_meta ON users.user_id=users_meta.user_id INNER JOIN user_role ON users.role_id=user_role.role_id WHERE users.user_id=?", user_id, (err, result) => {
@@ -295,7 +284,6 @@ const paymentHistory = (req, res) => {
 }
 
 module.exports = {
-    getUsers,
     createUser,
     updateRoleUser,
     deleteUser,

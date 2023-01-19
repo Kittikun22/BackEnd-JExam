@@ -35,8 +35,11 @@ const UserProductAndExams = (req, res) => {
         (err, result) => {
             if (err) {
                 console.log(err);
+            }
+            if (result.length == 0) {
+                res.send({ message: 'error' })
             } else {
-                res.send(result)
+                res.send({ message: 'ok', result: result })
             }
         })
 }

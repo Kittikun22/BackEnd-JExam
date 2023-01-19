@@ -21,7 +21,6 @@ const { getUsers,
 
 const userRoute = express.Router()
 
-userRoute.get('/users', getUsers)
 userRoute.post('/create-user', jsonParser, createUser)
 userRoute.post('/checkAvailable', phoneAvailable)
 userRoute.put('/update', updateRoleUser)

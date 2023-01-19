@@ -5,6 +5,7 @@ const db = mysql.createConnection({
     password: "",
     database: "jknowledge-exam"
 });
+
 // const db = mysql.createConnection({
 //     user: "jknowled_jexam",
 //     host: "localhost",
