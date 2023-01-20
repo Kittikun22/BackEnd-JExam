@@ -8,7 +8,8 @@ const registerRoutes = require('./routes/register-route')
 const cartRoutes = require('./routes/cart-route')
 const productRoutes = require('./routes/product-route')
 const fakepaymentRoutes = require('./routes/fakepayment-route')
-const userproductandexams = require('./routes/user-product-exam-route')
+const userproductandexamsRoutes = require('./routes/user-product-exam-route')
+const facultyRoutes = require('./routes/faculty-route')
 
 const app = express();
 app.use(cors());
@@ -22,7 +23,8 @@ app.use(registerRoutes)
 app.use(cartRoutes)
 app.use(productRoutes)
 app.use(fakepaymentRoutes)
-app.use(userproductandexams)
+app.use(userproductandexamsRoutes)
+app.use(facultyRoutes)
 
 
 

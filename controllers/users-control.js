@@ -172,9 +172,11 @@ const updateDreamFac = (req, res) => {
     const user_id = req.body.user_id
     const dream1 = req.body.dream1
     const dream2 = req.body.dream2
+    const major1 = req.body.major1
+    const major2 = req.body.major2
 
-    db.query("UPDATE users_meta SET dream1 = ?, dream2 = ? WHERE user_id = ?",
-        [dream1, dream2, user_id],
+    db.query("UPDATE users_meta SET dream1 = ?, dream2 = ?, major1 = ? , major2 = ? WHERE user_id = ?",
+        [dream1, dream2, major1, major2, user_id],
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -270,7 +272,7 @@ const ForgotPassword = (req, res) => {
 
 const paymentHistory = (req, res) => {
     const user_id = req.body.user_id
-    
+
     db.query('SELECT payment_id, transaction, amount, net_amount, payment_method, products, status, paid_at FROM payment WHERE user_id = ?',
         user_id,
         (err, result) => {
