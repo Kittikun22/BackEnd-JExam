@@ -2,12 +2,12 @@ const express = require('express')
 
 const { 
     getUserProductAndExams,
-    UserProductAndExams
+    UserProduct
  } = require('../controllers/user-product-exam-control')
 
 const userProductAndExamsRoute = express.Router()
 
 userProductAndExamsRoute.post('/getuserproductandexams', getUserProductAndExams)
-userProductAndExamsRoute.post('/UserProductAndExams', UserProductAndExams)
+userProductAndExamsRoute.post('/UserProduct', UserProduct)
 
 module.exports = userProductAndExamsRoute

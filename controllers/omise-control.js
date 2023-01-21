@@ -1,17 +1,11 @@
 const mysql = require('mysql');
-const db = mysql.createConnection({
-    user: "root",
-    host: "localhost",
-    password: "",
-    database: "jknowledge-exam"
-});
 
-// const db = mysql.createConnection({
-//     user: "jknowled_jexam",
-//     host: "localhost",
-//     password: "JHriAJzc6f",
-//     database: "jknowled_jexam"
-// });
+const db = mysql.createConnection({
+    user: process.env.user,
+    host: process.env.host,
+    password: process.env.password,
+    database: process.env.database
+});
 
 var omise = require('omise')({
     'publicKey': process.env.OMISE_PUBLIC_KEY,

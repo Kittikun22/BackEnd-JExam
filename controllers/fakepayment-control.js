@@ -1,18 +1,11 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-    user: "root",
-    host: "localhost",
-    password: "",
-    database: "jknowledge-exam"
+    user: process.env.user,
+    host: process.env.host,
+    password: process.env.password,
+    database: process.env.database
 });
-
-// const db = mysql.createConnection({
-//     user: "jknowled_jexam",
-//     host: "localhost",
-//     password: "JHriAJzc6f",
-//     database: "jknowled_jexam"
-// });
 
 const fakepay = (req, res) => {
     const payment_id = req.body.payment_id
@@ -25,7 +18,7 @@ const fakepay = (req, res) => {
     const status = 'success'
 
     const productName = products.map((val) => val.name)
-    const productArr = products.map((val) => '(' + user_id + ',' + val.exam_id + ',' + val.id + ')')
+    const productArr = products.map((val) => '(' + user_id + ',' + val.product_id + ')')
 
     db.query("INSERT INTO payment (payment_id, user_id, transaction, amount, net_amount, payment_method, products,status) VALUES (?,?,?,?,?,?,?,?)",
         [payment_id, user_id, transaction, amount, net_amount, payment_method, JSON.stringify(productName), status],
@@ -33,7 +26,7 @@ const fakepay = (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                db.query('INSERT INTO user_product_exam (user_id, exam_id, product_id) VALUES ' + productArr.join(','),
+                db.query('INSERT INTO user_product_exam (user_id, product_id) VALUES ' + productArr.join(','),
                     productArr,
                     (err, result) => {
                         if (err) {

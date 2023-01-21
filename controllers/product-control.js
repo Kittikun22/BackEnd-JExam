@@ -1,21 +1,14 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-    user: "root",
-    host: "localhost",
-    password: "",
-    database: "jknowledge-exam"
+    user: process.env.user,
+    host: process.env.host,
+    password: process.env.password,
+    database: process.env.database
 });
 
-// const db = mysql.createConnection({
-//     user: "jknowled_jexam",
-//     host: "localhost",
-//     password: "JHriAJzc6f",
-//     database: "jknowled_jexam"
-// });
-
 const getAllProduct = (req, res) => {
-    db.query("SELECT * FROM product_exam INNER JOIN products ON product_exam.product_id = products.id",
+    db.query("SELECT product_id , name, amount,  detail, blueprint, pic, category_id, subject_id FROM products",
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -27,7 +20,7 @@ const getAllProduct = (req, res) => {
 
 const getProduct = (req, res) => {
     const product_id = req.params.product_id
-    db.query("SELECT product_id, exams.exam_id, exam_info, exam_content, name, amount, detail, blueprint, pic, subject_name, category_name FROM product_exam INNER JOIN exams ON product_exam.exam_id=exams.exam_id INNER JOIN products ON product_exam.product_id=products.id INNER JOIN subject ON products.subject_id=subject.subject_id INNER JOIN category ON products.category_id=category.category_id WHERE product_exam.product_id=?", [product_id],
+    db.query("SELECT product_id, name, amount, detail, blueprint, pic, subject_name, category_name FROM products INNER JOIN subject ON products.subject_id = subject.subject_id INNER JOIN category ON products.category_id = category.category_id  WHERE product_id = ?", [product_id],
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -39,7 +32,7 @@ const getProduct = (req, res) => {
 
 const getProductInCart = (req, res) => {
     const product_id = req.body.product_id
-    db.query("SELECT * FROM product_exam INNER JOIN products ON product_exam.product_id = products.id WHERE product_id in (?)",
+    db.query("SELECT product_id , name, amount,  detail, blueprint, pic, category_id, subject_id FROM products WHERE product_id in (?)",
         [product_id],
         (err, result) => {
             if (err) {

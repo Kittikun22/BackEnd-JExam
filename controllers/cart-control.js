@@ -1,18 +1,11 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-    user: "root",
-    host: "localhost",
-    password: "",
-    database: "jknowledge-exam"
+    user: process.env.user,
+    host: process.env.host,
+    password: process.env.password,
+    database: process.env.database
 });
-
-// const db = mysql.createConnection({
-//     user: "jknowled_jexam",
-//     host: "localhost",
-//     password: "JHriAJzc6f",
-//     database: "jknowled_jexam"
-// });
 
 const getCart = (req, res) => {
     const user_id = req.body.user_id
