@@ -10,6 +10,7 @@ const productRoutes = require('./routes/product-route')
 const fakepaymentRoutes = require('./routes/fakepayment-route')
 const userproductandexamsRoutes = require('./routes/user-product-exam-route')
 const facultyRoutes = require('./routes/faculty-route')
+const codePromotionRoutes = require('./routes/code-promotion-route')
 
 const app = express();
 app.use(cors());
@@ -25,7 +26,7 @@ app.use(productRoutes)
 app.use(fakepaymentRoutes)
 app.use(userproductandexamsRoutes)
 app.use(facultyRoutes)
-
+app.use(codePromotionRoutes)
 
 
 app.listen(8000, () => {
