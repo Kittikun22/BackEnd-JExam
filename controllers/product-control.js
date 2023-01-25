@@ -25,7 +25,7 @@ const getProduct = (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                res.json(result)
+                res.send(result)
             }
         })
 }
@@ -38,7 +38,7 @@ const getProductInCart = (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                res.json(result)
+                res.send(result)
             }
         })
 }
