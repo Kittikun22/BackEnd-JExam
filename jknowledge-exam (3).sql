@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2023 at 11:12 AM
+-- Generation Time: Jan 25, 2023 at 09:12 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -154,12 +154,8 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`payment_id`, `user_id`, `transaction`, `amount`, `net_amount`, `payment_method`, `products`, `status`, `paid_at`) VALUES
-(149, 73, 'trxn-yghjdzwmjc62442952', 300, 291, 'card', '[\"NETSAT ภาษาไทย\",\"TGAT1 91 การสื่อสารภาษาอังกฤษ\",\"TPAT3 ความถนัดวิทยาศาสตร์ เทคโนโลยี วิศวกรรมศาสตร์\"]', 'success', '2023-01-20 08:27:43'),
-(150, 73, 'trxn-akxovgdnfw55393959', 200, 200, 'card', '[\"NETSAT ภาษาไทย\"]', 'success', '2023-01-21 03:13:19'),
-(151, 73, 'trxn-mifnnqcoxh45186156', 200, 200, 'card', '[\"NETSAT ภาษาไทย\"]', 'success', '2023-01-21 03:21:25'),
-(152, 73, 'trxn-jaggxjxibr88313659', 100, 100, 'card', '[\"NETSAT ภาษาไทย\"]', 'success', '2023-01-21 07:47:55'),
-(153, 73, 'trxn-jaggxjxibr88313659', 100, 100, 'card', '[\"NETSAT ภาษาไทย\"]', 'success', '2023-01-21 07:49:40'),
-(154, 73, 'trxn-cdqdqpftdx11266398', 100, 100, 'card', '[\"NETSAT ภาษาอังกฤษ\"]', 'success', '2023-01-21 08:44:10');
+(155, 73, 'trxn-etjmnxahls95634662', 100, 100, 'card', '[\"NETSAT ภาษาไทย\"]', 'success', '2023-01-24 04:27:08'),
+(156, 73, 'trxn-wtindfmdae17205632', 100, 100, 'card', '[\"TGAT1 91 การสื่อสารภาษาอังกฤษ\"]', 'success', '2023-01-24 04:31:45');
 
 -- --------------------------------------------------------
 
@@ -498,7 +494,7 @@ CREATE TABLE `users_meta` (
 --
 
 INSERT INTO `users_meta` (`user_meta_id`, `user_id`, `grade`, `school`, `province`, `expectation`, `parentJob`, `cart`, `termCondition`, `itemSelected`, `dream1`, `dream2`, `major1`, `major2`) VALUES
-(8, 73, 'มัธยมศึกษาปีที่ 6', 'สกลราช', 'สกลนคร', 'สอบเข้ามหาวิทยาลัย', '', '[]', 'ยอมรับ', '[]', 1, 2, 1, 3);
+(8, 73, 'มัธยมศึกษาปีที่ 6', 'สกลราช', 'สกลนคร', 'สอบเข้ามหาวิทยาลัย', '', '[{\"product_id\":3,\"name\":\"NETSAT คณิตศาสตร์\",\"amount\":100,\"detail\":\"ความฉลาดรู้ทั่วไปด้านคณิตศาสตร์\",\"blueprint\":null,\"pic\":\"images/exams/netsat/NETSAT_Math.png\",\"category_id\":4,\"subject_id\":1},{\"product_id\":4,\"name\":\"NETSAT วิทยาศาสตร์และเทคโนโลยี\",\"amount\":100,\"detail\":\"ความฉลาดรู้เฉพาะด้านวิทยาศาสตร์และเทคโนโลยี\",\"blueprint\":null,\"pic\":\"images/exams/netsat/NETSAT_Sci.png\",\"category_id\":4,\"subject_id\":2},{\"product_id\":6,\"name\":\"NETSAT ชีววิทยา\",\"amount\":100,\"detail\":\"ความฉลาดรู้เฉพาะด้านชีววิทยา\",\"blueprint\":null,\"pic\":\"images/exams/netsat/NETSAT_Bio.png\",\"category_id\":4,\"subject_id\":2}]', 'ยอมรับ', '[{\"product_id\":3,\"name\":\"NETSAT คณิตศาสตร์\",\"amount\":100,\"detail\":\"ความฉลาดรู้ทั่วไปด้านคณิตศาสตร์\",\"blueprint\":null,\"pic\":\"images/exams/netsat/NETSAT_Math.png\",\"category_id\":4,\"subject_id\":1},{\"product_id\":4,\"name\":\"NETSAT วิทยาศาสตร์และเทคโนโลยี\",\"amount\":100,\"detail\":\"ความฉลาดรู้เฉพาะด้านวิทยาศาสตร์และเทคโนโลยี\",\"blueprint\":null,\"pic\":\"images/exams/netsat/NETSAT_Sci.png\",\"category_id\":4,\"subject_id\":2}]', 1, 2, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -517,8 +513,8 @@ CREATE TABLE `user_product_exam` (
 --
 
 INSERT INTO `user_product_exam` (`user_exams_id`, `user_id`, `product_id`) VALUES
-(62, 73, 1),
-(63, 73, 2);
+(64, 73, 1),
+(65, 73, 10);
 
 -- --------------------------------------------------------
 
@@ -701,7 +697,7 @@ ALTER TABLE `major`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -755,7 +751,7 @@ ALTER TABLE `users_meta`
 -- AUTO_INCREMENT for table `user_product_exam`
 --
 ALTER TABLE `user_product_exam`
-  MODIFY `user_exams_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `user_exams_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `user_role`
