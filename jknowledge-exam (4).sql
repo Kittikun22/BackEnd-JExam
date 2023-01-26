@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2023 at 09:12 AM
+-- Generation Time: Jan 26, 2023 at 08:33 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -45,6 +45,26 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `codes`
+--
+
+CREATE TABLE `codes` (
+  `code_id` int(11) NOT NULL,
+  `code_name` varchar(255) NOT NULL,
+  `code_discount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `codes`
+--
+
+INSERT INTO `codes` (`code_id`, `code_name`, `code_discount`) VALUES
+(1, 'JKNOWLEDGE2023', 100),
+(2, 'JSUMMER2023', 50);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `exams`
 --
 
@@ -62,6 +82,29 @@ CREATE TABLE `exams` (
 INSERT INTO `exams` (`exam_id`, `exam_name`, `exam_info`, `exam_content`) VALUES
 (1, 'NETSAT ภาษาไทย', '[     { \"Title\": \"NETSAT ด้านภาษาอังกฤษ\",         \"Description_line_i\": \"ความฉลาดรู้ทั่วไป 102 ด้านภาษาอังกฤษ\",         \"Description_line_ii\": \"Reading :Including 3 Part 1.Reading Instructions 2.Reading Correspondence 3.Reading for Information and Argument\",         \"Description_line_iii\": \"Writing :Including 2 Part 1.Sentence Completion 2.Error Detection\",         \"Description_line_iv\": \"\",         \"Description_line_v\": \"\",         \"NumberofQuestions\": 11,         \"Duration\": 60,         \"Linkedquestionid\": [0, 1, 2, 3, 4, 5],         \"Category\": { \"SentenceCompletion\": 6, \"ErrorDetection\": 8, \"ReadingInstruction\": 3, \"ReadingCorrespondence\": 3, \"ReadingforinformationandArgument\": 4 }     } ]', '[{\n	\"id\": 1,\n	\"question\": \"ข้อใดเป็นการใช้ความเปรียบเทียบที่แตกต่างจากข้ออื่น\",\n	\"choice\": [{\n		\"choicevalue\": \"a\",\n		\"choicetext\": \"ครูคือแม่พิมพ์ของชาติ\",\n		\"point\": 1\n	}, {\n		\"choicevalue\": \"b\",\n		\"choicetext\": \"ท่าทางหล่อนราวกับนางพญา\",\n		\"point\": 0\n	}, {\n		\"choicevalue\": \"c\",\n		\"choicetext\": \"ไพเราะกังวานปานเสียงนกร้อง\",\n		\"point\": 0\n	}, {\n		\"choicevalue\": \"d\",\n		\"choicetext\": \"ฟันเรียงสลอนเหมือนข้าวโพดพันธุ์ดี\",\n		\"point\": 0\n	}, {\n		\"choicevalue\": \"e\",\n		\"choicetext\": \"\",\n		\"point\": 0\n	}],\n	\"Answer\": \"a\",\n	\"Category\": \"\"\n}, {\n	\"id\": 2,\n	\"question\": \"ผู้นำที่ดีจะต้องมี________ในการบริหารที่กว้างไกล  ในขณะที่ผู้นำที่บางประเภทมักจะชอบสร้าง_________ให้น่าเชื่อถือมากกว่าลงมือปฏิบัติ\",\n	\"choice\": [{\n		\"choicevalue\": \"a\",\n		\"choicetext\": \"มุมมอง , ภาพพจน์\"\n	}, {\n		\"choicevalue\": \"b\",\n		\"choicetext\": \"มุมมอง , ภาพลักษณ์\"\n	}, {\n		\"choicevalue\": \"c\",\n		\"choicetext\": \"วิสัยทัศน์ , ภาพพจน์\"\n	}, {\n		\"choicevalue\": \"d\",\n		\"choicetext\": \"วิสัยทัศน์ , ภาพลักษณ์\"\n	}, {\n		\"choicevalue\": \"e\",\n		\"choicetext\": \"\"\n	}],\n	\"Answer\": \"d\",\n	\"Category\": \"\"\n}]'),
 (2, 'NETSAT ภาษาอังกฤษ', '[     { \"Title\": \"NETSAT ด้านภาษาอังกฤษ\",         \"Description_line_i\": \"ความฉลาดรู้ทั่วไป 102 ด้านภาษาอังกฤษ\",         \"Description_line_ii\": \"Reading :Including 3 Part 1.Reading Instructions 2.Reading Correspondence 3.Reading for Information and Argument\",         \"Description_line_iii\": \"Writing :Including 2 Part 1.Sentence Completion 2.Error Detection\",         \"Description_line_iv\": \"\",         \"Description_line_v\": \"\",         \"NumberofQuestions\": 11,         \"Duration\": 60,         \"Linkedquestionid\": [0, 1, 2, 3, 4, 5],         \"Category\": { \"SentenceCompletion\": 6, \"ErrorDetection\": 8, \"ReadingInstruction\": 3, \"ReadingCorrespondence\": 3, \"ReadingforinformationandArgument\": 4 }     } ]', '[{\n	\"id\": 1,\n	\"question\": \"That\\\"s a very nice dress you\\\"re wearing. - ............\",\n	\"choice\": [{\n		\"choicevalue\": \"a\",\n		\"choicetext\": \"(k)I\\\"m glad you like it\",\n		\"point\": 1\n	}, {\n		\"choicevalue\": \"b\",\n		\"choicetext\": \"That\\\"s all right\",\n		\"point\": 0\n	}, {\n		\"choicevalue\": \"c\",\n		\"choicetext\": \"That\\\" nice\",\n		\"point\": 0\n	}, {\n		\"choicevalue\": \"d\",\n		\"choicetext\": \"You\\\"re quite right\",\n		\"point\": 0\n	}, {\n		\"choicevalue\": \"e\",\n		\"choicetext\": \"Quite right\",\n		\"point\": 0\n	}],\n	\"Answer\": \"a\",\n	\"Category\": \"Conversation\"\n}, {\n	\"id\": 2,\n	\"question\": \"............to stay the night? – Oh, that\\\"s very kind of you.\",\n	\"choice\": [{\n		\"choicevalue\": \"a\",\n		\"choicetext\": \"Do you feel like\"\n	}, {\n		\"choicevalue\": \"b\",\n		\"choicetext\": \"(k)Would you like\"\n	}, {\n		\"choicevalue\": \"c\",\n		\"choicetext\": \"Why don\\\"t you\"\n	}, {\n		\"choicevalue\": \"d\",\n		\"choicetext\": \"Do you enjoy\"\n	}, {\n		\"choicevalue\": \"e\",\n		\"choicetext\": \"Would do you like\"\n	}],\n	\"Answer\": \"b\",\n	\"Category\": \"Conversation\"\n}]');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exams_meta`
+--
+
+CREATE TABLE `exams_meta` (
+  `exam_meta_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `answer` text NOT NULL,
+  `point` text NOT NULL,
+  `score` int(11) NOT NULL,
+  `timetaken` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `exams_meta`
+--
+
+INSERT INTO `exams_meta` (`exam_meta_id`, `user_id`, `exam_id`, `answer`, `point`, `score`, `timetaken`) VALUES
+(1, 73, 1, '{\"no.5\":\"b\",\"no.9\":\"a\",\"no.4\":\"d\",\"no.8\":\"d\",\"no.6\":\"b\",\"no.7\":\"a\",\"no.11\":\"d\",\"no.2\":\"a\",\"no.10\":\"d\",\"no.3\":\"a\",\"no.1\":\"b\"}', '{\"Conversation\":66,\"Grammar\":50,\"Reading\":66,\"Writing\":100,\"Error\":50}', 27, '2023-01-26 03:04:17');
 
 -- --------------------------------------------------------
 
@@ -148,14 +191,6 @@ CREATE TABLE `payment` (
   `status` varchar(255) NOT NULL,
   `paid_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`payment_id`, `user_id`, `transaction`, `amount`, `net_amount`, `payment_method`, `products`, `status`, `paid_at`) VALUES
-(155, 73, 'trxn-etjmnxahls95634662', 100, 100, 'card', '[\"NETSAT ภาษาไทย\"]', 'success', '2023-01-24 04:27:08'),
-(156, 73, 'trxn-wtindfmdae17205632', 100, 100, 'card', '[\"TGAT1 91 การสื่อสารภาษาอังกฤษ\"]', 'success', '2023-01-24 04:31:45');
 
 -- --------------------------------------------------------
 
@@ -274,7 +309,30 @@ INSERT INTO `profile_picture` (`profile_picture_id`, `picture_path`) VALUES
 (4, 'images/profile/profile4.png'),
 (5, 'images/profile/profile5.png'),
 (6, 'images/profile/profile6.png'),
-(7, 'images/profile/profile7.png');
+(7, 'images/profile/profile7.png'),
+(8, 'images/profile/profile8.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `promotions`
+--
+
+CREATE TABLE `promotions` (
+  `promotion_id` int(11) NOT NULL,
+  `promotion_name` varchar(255) NOT NULL,
+  `promotion_min` int(11) NOT NULL,
+  `promotion_discount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `promotions`
+--
+
+INSERT INTO `promotions` (`promotion_id`, `promotion_name`, `promotion_min`, `promotion_discount`) VALUES
+(1, 'ซื้อครบ 3 รายการ', 3, 3),
+(2, 'ซื้อครบ 5 รายการ', 5, 10),
+(3, 'ซื้อครบ 10 รายการ', 10, 15);
 
 -- --------------------------------------------------------
 
@@ -464,7 +522,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `phone`, `password`, `fname`, `lname`, `email`, `user_role`, `user_pic`, `payment_status`, `role_id`, `register_at`) VALUES
-(73, '123', '$2b$10$cLHQ8oNk1GcJ74nyMKUr0.AWuZB.CR5kDd/dbVVrYMiBaV3GB6uvS', 'กิตติคุณ', 'สิงห์คำมา', 's.kittikun3@gmail.com', 'นักเรียน', 'images/profile/profile6.png', '', 1, '2022-11-25 10:09:48');
+(73, '123', '$2b$10$cLHQ8oNk1GcJ74nyMKUr0.AWuZB.CR5kDd/dbVVrYMiBaV3GB6uvS', 'กิตติคุณ', 'สิงห์คำมา', 's.kittikun3@gmail.com', 'นักเรียน', 'images/profile/profile4.png', '', 1, '2022-11-25 10:09:48');
 
 -- --------------------------------------------------------
 
@@ -494,7 +552,7 @@ CREATE TABLE `users_meta` (
 --
 
 INSERT INTO `users_meta` (`user_meta_id`, `user_id`, `grade`, `school`, `province`, `expectation`, `parentJob`, `cart`, `termCondition`, `itemSelected`, `dream1`, `dream2`, `major1`, `major2`) VALUES
-(8, 73, 'มัธยมศึกษาปีที่ 6', 'สกลราช', 'สกลนคร', 'สอบเข้ามหาวิทยาลัย', '', '[{\"product_id\":3,\"name\":\"NETSAT คณิตศาสตร์\",\"amount\":100,\"detail\":\"ความฉลาดรู้ทั่วไปด้านคณิตศาสตร์\",\"blueprint\":null,\"pic\":\"images/exams/netsat/NETSAT_Math.png\",\"category_id\":4,\"subject_id\":1},{\"product_id\":4,\"name\":\"NETSAT วิทยาศาสตร์และเทคโนโลยี\",\"amount\":100,\"detail\":\"ความฉลาดรู้เฉพาะด้านวิทยาศาสตร์และเทคโนโลยี\",\"blueprint\":null,\"pic\":\"images/exams/netsat/NETSAT_Sci.png\",\"category_id\":4,\"subject_id\":2},{\"product_id\":6,\"name\":\"NETSAT ชีววิทยา\",\"amount\":100,\"detail\":\"ความฉลาดรู้เฉพาะด้านชีววิทยา\",\"blueprint\":null,\"pic\":\"images/exams/netsat/NETSAT_Bio.png\",\"category_id\":4,\"subject_id\":2}]', 'ยอมรับ', '[{\"product_id\":3,\"name\":\"NETSAT คณิตศาสตร์\",\"amount\":100,\"detail\":\"ความฉลาดรู้ทั่วไปด้านคณิตศาสตร์\",\"blueprint\":null,\"pic\":\"images/exams/netsat/NETSAT_Math.png\",\"category_id\":4,\"subject_id\":1},{\"product_id\":4,\"name\":\"NETSAT วิทยาศาสตร์และเทคโนโลยี\",\"amount\":100,\"detail\":\"ความฉลาดรู้เฉพาะด้านวิทยาศาสตร์และเทคโนโลยี\",\"blueprint\":null,\"pic\":\"images/exams/netsat/NETSAT_Sci.png\",\"category_id\":4,\"subject_id\":2}]', 1, 2, 1, 3);
+(8, 73, 'มัธยมศึกษาปีที่ 6', 'สกลราช', 'สกลนคร', 'สอบเข้ามหาวิทยาลัย', '', '[{\"product_id\":11,\"name\":\"TGAT2 92 การคิดอย่างมีเหตุผล\",\"amount\":100,\"detail\":\"TGAT2 92 การคิดอย่างมีเหตุผล\",\"blueprint\":\"[{ \\\"topic\\\": \\\"สมรรถนะการคิดอย่างมีเหตุผล (Critical & Logical Thinking) (80ข้อ)\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"ความสามารถทางภาษา\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"ความสามารถทางตัวเลข\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"ความสามารถทางมิติสัมพันธ์\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"ความสามารถทางเหตุผล\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] } ] }, { \\\"topic\\\": \\\"ประเภทข้อสอบ ปรนัย (5 ตัวเลือก)\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }] }, { \\\"topic\\\": \\\"ระยะเวลาที่ใช้สอบ 60 นาที\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }] }, { \\\"topic\\\": \\\"จำนวนข้อ\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"ความสามารถทางภาษา 20 ข้อ\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }, { \\\"subtopic\\\": \\\"ความสามารถทางตัวเลข 20 ข้อ\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }, { \\\"subtopic\\\": \\\"ความสามารถทางมิติสัมพันธ์ 20 ข้อ\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }, { \\\"subtopic\\\": \\\"ความสามารถทางเหตุผล 20 ข้อ\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }, { \\\"subtopic\\\": \\\"รวม 80 ข้อ\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] } ] }, { \\\"topic\\\": \\\"คะแนนเต็ม 100 คะแนน\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }] } ]\",\"pic\":\"images/exams/tgat/TGAT2_Logic.png\",\"category_id\":1,\"subject_id\":10},{\"product_id\":12,\"name\":\"TGAT3 93 สมรรถนะการทำงาน\",\"amount\":100,\"detail\":\"TGAT3 93 สมรรถนะการทำงาน\",\"blueprint\":\"[{ \\\"topic\\\": \\\"การสร้างคุณค่าและนวัตกรรม (15 ข้อ)\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"การคิดเชิงวิเคราะห์ (Analytical thinking)\\\", \\\"explanation\\\": \\\"ความเข้าใจในการกำหนดวิธีการรวบรวมประเด็น เหตุการณ์ที่เกิดขึ้น รวมทั้งมีหลักการในการสรุปผลการวิเคราะห์และแยกแยะข้อมูลที่ได้รับออกเป็นปัจจัยย่อย ๆ เช่น สาเหตุ ผลลัพธ์ ผลกระทบ ข้อเสนอแนะ และผู้ที่เกี่ยวข้อง เป็นต้น\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"การแก้ไขปัญหาอย่างมืออาชีพ (Professional problem solving)\\\", \\\"explanation\\\": \\\"ความสามารถในการวิเคราะห์ปัญหาหรือเล็งปัญหา พร้อมทั้งลงมือจัดการกับปัญหานั้น ๆ อย่างมี ข้อมูล มีหลักการ และสามารถนำความเชี่ยวชาญ หรือแนวคิดในสายวิชาชีพมาประยุกต์ใช้ในการ แก้ไขปัญหาได้อย่างมีประสิทธิภาพ\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"ความสามารถทางมิติสัมพันธ์ความคิดเชิงนวัตกรรม (Innovative thinking)\\\", \\\"explanation\\\": \\\"การนำเสนอความคิดสร้างสรรค์ทางเลือก สินค้าและบริการรูปแบบใหม่ พร้อมทั้งการปรับเปลี่ยน กลยุทธ์ นโยบาย และรูปแบบการดำเนินงานให้เหมาะสมกับสภาพแวดล้อม รวมถึงการพูดจูงใจผู้อื่น นำเสนอความคิดและรูปแบบของสินค้า บริการ และวิธีการดำเนินงานรูปแบบใหม่\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }] }, { \\\"topic\\\": \\\"การแก้ไขปัญหาที่ซับซ้อน (15 ข้อ)\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"การระบุปัญหา (Identifying problems)\\\", \\\"explanation\\\": \\\"ประกอบด้วย ทำความเข้าใจบริบทแวดล้อม การระบุและทำความเข้าใจปัญหา การมีส่วนร่วมของผู้ที่เกี่ยวข้องในการระบุปัญหา\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"การแสวงหาทางออก (Generating and selecting solutions)\\\", \\\"explanation\\\": \\\"ประกอบด้วย การสร้างและหาทางเลือก และการประเมินทางเลือกที่เหมาะสม\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"การนำทางออกไปแก้ปัญหา (Implementation)\\\", \\\"explanation\\\": \\\"ประกอบด้วย การปฏิบัติตามแผน และการปรับเปลี่ยนตามความเหมาะสม\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"การประเมินทางออกเพื่อการพัฒนาปรับปรุง (Evaluation)\\\", \\\"explanation\\\": \\\"ประกอบด้วย เก็บข้อมูลจากการนำทางออกไปลองใช้ และสรุปผลจากการนำทางออกไปลองใช้\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }] }, { \\\"topic\\\": \\\"การบริหารจัดการอารมณ์ (15 ข้อ)\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"ความตระหนักรู้ตนเอง (Self awareness)\\\", \\\"explanation\\\": \\\"การรับรู้ ควบคุมสภาพอารมณ์ และทัศนคติ เพื่อรักษาอารมณ์ และประสิทธิภาพของตนเอง แม้ในสถานการณ์ที่ตึงเครียดหรือมีภาระสูง มีความตระหนักถึงจุดแข็งของตนเอง รวมถึงจุดที่ต้องพัฒนา โดยมีความมุ่งมั่นที่จะพัฒนาอย่างต่อเนื่อง\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"การควบคุมอารมณ์และบุคลิกภาพ (Personality and emotional control)\\\", \\\"explanation\\\": \\\"ความสามารถในการแสดงออก ทางสีหน้า ท่าทาง และอารมณ์ได้อย่างเหมาะสม เมื่อต้องเผชิญกับบุคคล ลักษณะงาน และสถานการณ์ที่ตึงเครียด รวมถึงการให้คำปรึกษา แนะนำและสอนผู้อื่น ให้ควบคุมอารมณ์และบุคคลิภาพได้อย่างเหมาะสม\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"ความเข้าใจผู้อื่น (Interpersonal understanding)\\\", \\\"explanation\\\": \\\"ความเข้าใจความต้องการ ความกังวล และความรู้สึกของผู้อื่น ทั้งสิ่งที่แสดงออกและไม่แสดงออก และความสามารถในการตอบสนอง และให้ความช่วยเหลือได้อย่างเหมาะสม และเท่าเทียมกัน\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }] }, { \\\"topic\\\": \\\"การเป็นพลเมืองที่มีส่วนร่วมของสังคม (15 ข้อ)\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"การมุ่งเน้นการบริการสังคม (Service orientation)\\\", \\\"explanation\\\": \\\"การคิด และทำสิ่งต่าง ๆ โดยมีความต้องการของสังคมและผู้มีส่วนได้ส่วนเสียอยู่ในใจเสมอ โดยมุ่งเน้นการศึกษา และทำความเข้าใจความต้องการต่าง ๆ แสดงถึงความมุ่งมั่นต้องการช่วยเหลือผู้อื่นอย่างแท้จริง พร้อมพัฒนาและ รักษาความสัมพันธ์ที่ดีอย่างยั่งยืน\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"จิตสำนึกและรับผิดชอบต่อสิ่งแวดล้อม (Environmental responsibility)\\\", \\\"explanation\\\": \\\"การมีจิตสำนึก ตระหนักให้ความสำคัญ มีความรับผิดชอบต่อสังคมและสิ่งแวดล้อม รวมทั้งมีความมุ่งมั่นและทุ่มเทที่จะอนุรักษ์ และรักษาสิ่งแวดล้อม สังคม และชุมชนให้น่าอยู่ ตลอดจนเข้าไปมีส่วนร่วมในการปฏิบัติงาน หรือร่วมกิจกรรมต่าง ๆ ที่เกี่ยวข้องกับสังคม และสิ่งแวดล้อมขององค์กรอย่างเต็มที่ เพื่อเกิดประโยชน์ต่อชุมชน สังคม และสิ่งแวดล้อมโดยรวม\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }, { \\\"subtopic\\\": \\\"การสร้างสรรค์เพื่อประโยชน์ของท้องถิ่น (Creating local benefits)\\\", \\\"explanation\\\": \\\"ความสามารถในการคิดค้น ออกแบบ และสร้างสรรค์สิ่งใหม่ ๆ ที่แปลกและแตกต่างไปจากเดิม โดยการมุ่งเน้นพัฒนาและสร้างสรรค์สิ่งใหม่ ๆ ที่เป็นประโยชน์ในระยะยาว และยั่งยืนให้แก่ประชาชน พื้นที่ หรือท้องถิ่นที่รับผิดชอบอย่างเป็นรูปธรรม\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }, { \\\"detail\\\": \\\"\\\" } ] }] }, { \\\"topic\\\": \\\"ประเภทข้อสอบ ปรนัย (4 ตัวเลือก)\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"\\\", \\\"explanation\\\": \\\"เพื่อวัดทัศนคติ 4 ระดับ ทุกคำตอบจะมีคะแนนอยู่ในช่วงระหว่าง 0-1 คะแนน การตอบคำถาม มี 2 แบบ คือ\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"เลือกตอบตัวเลือกเดียว\\\" }, { \\\"detail\\\": \\\"เลือกตอบหลายตัวเลือก\\\" }] }] }, { \\\"topic\\\": \\\"ระยะเวลาที่ใช้สอบ 60 นาที\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }] }, { \\\"topic\\\": \\\"จำนวนข้อ\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"การสร้างคุณค่าและนวัตกรรม 15 ข้อ\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }, { \\\"subtopic\\\": \\\"การแก้ไขปัญหาที่ซับซ้อน 15 ข้อ\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }, { \\\"subtopic\\\": \\\"การบริหารจัดการอารมณ์ 15 ข้อ\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }, { \\\"subtopic\\\": \\\"การเป็นพลเมืองที่มีส่วนร่วมของสังคม 15 ข้อ\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }, { \\\"subtopic\\\": \\\"รวม 60 ข้อ\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] } ] }, { \\\"topic\\\": \\\"คะแนนเต็ม 100 คะแนน\\\", \\\"subtopics\\\": [{ \\\"subtopic\\\": \\\"\\\", \\\"explanation\\\": \\\"\\\", \\\"details\\\": [{ \\\"detail\\\": \\\"\\\" }] }] } ]\",\"pic\":\"images/exams/tgat/TGAT3_Work.png\",\"category_id\":1,\"subject_id\":10}]', 'ยอมรับ', '[]', 1, 2, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -507,14 +565,6 @@ CREATE TABLE `user_product_exam` (
   `user_id` int(11) DEFAULT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user_product_exam`
---
-
-INSERT INTO `user_product_exam` (`user_exams_id`, `user_id`, `product_id`) VALUES
-(64, 73, 1),
-(65, 73, 10);
 
 -- --------------------------------------------------------
 
@@ -551,10 +601,24 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Indexes for table `codes`
+--
+ALTER TABLE `codes`
+  ADD PRIMARY KEY (`code_id`);
+
+--
 -- Indexes for table `exams`
 --
 ALTER TABLE `exams`
   ADD PRIMARY KEY (`exam_id`);
+
+--
+-- Indexes for table `exams_meta`
+--
+ALTER TABLE `exams_meta`
+  ADD PRIMARY KEY (`exam_meta_id`),
+  ADD KEY `fk user_id` (`user_id`),
+  ADD KEY `fk exam_id` (`exam_id`);
 
 --
 -- Indexes for table `expectation`
@@ -602,6 +666,12 @@ ALTER TABLE `product_exam`
 --
 ALTER TABLE `profile_picture`
   ADD PRIMARY KEY (`profile_picture_id`);
+
+--
+-- Indexes for table `promotions`
+--
+ALTER TABLE `promotions`
+  ADD PRIMARY KEY (`promotion_id`);
 
 --
 -- Indexes for table `provinces`
@@ -670,10 +740,22 @@ ALTER TABLE `category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `codes`
+--
+ALTER TABLE `codes`
+  MODIFY `code_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `exams`
 --
 ALTER TABLE `exams`
   MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `exams_meta`
+--
+ALTER TABLE `exams_meta`
+  MODIFY `exam_meta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `expectation`
@@ -697,7 +779,7 @@ ALTER TABLE `major`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -709,7 +791,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `profile_picture`
 --
 ALTER TABLE `profile_picture`
-  MODIFY `profile_picture_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `profile_picture_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `promotions`
+--
+ALTER TABLE `promotions`
+  MODIFY `promotion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `provinces`
@@ -751,7 +839,7 @@ ALTER TABLE `users_meta`
 -- AUTO_INCREMENT for table `user_product_exam`
 --
 ALTER TABLE `user_product_exam`
-  MODIFY `user_exams_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `user_exams_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -762,6 +850,13 @@ ALTER TABLE `user_role`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `exams_meta`
+--
+ALTER TABLE `exams_meta`
+  ADD CONSTRAINT `fk exam_id` FOREIGN KEY (`exam_id`) REFERENCES `exams` (`exam_id`),
+  ADD CONSTRAINT `fk user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `major`

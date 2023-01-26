@@ -8,7 +8,7 @@ const db = mysql.createConnection({
 });
 
 const getCode = (req, res) => {
-    db.query("SELECT * FROM code ",
+    db.query("SELECT * FROM codes ",
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -19,7 +19,7 @@ const getCode = (req, res) => {
 }
 
 const getPromotion = (req, res) => {
-    db.query("SELECT * FROM promotion ",
+    db.query("SELECT * FROM promotions ",
         (err, result) => {
             if (err) {
                 console.log(err);
