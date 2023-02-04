@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2023 at 11:06 AM
+-- Generation Time: Feb 04, 2023 at 11:00 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -94,17 +94,26 @@ CREATE TABLE `exams_meta` (
   `user_id` int(11) NOT NULL,
   `exam_id` int(11) NOT NULL,
   `answer` text NOT NULL,
-  `point` text NOT NULL,
   `score` int(11) NOT NULL,
-  `timetaken` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `timeSpend` int(11) NOT NULL,
+  `submit_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `exams_meta`
 --
 
-INSERT INTO `exams_meta` (`exam_meta_id`, `user_id`, `exam_id`, `answer`, `point`, `score`, `timetaken`) VALUES
-(1, 73, 1, '{\"no.5\":\"b\",\"no.9\":\"a\",\"no.4\":\"d\",\"no.8\":\"d\",\"no.6\":\"b\",\"no.7\":\"a\",\"no.11\":\"d\",\"no.2\":\"a\",\"no.10\":\"d\",\"no.3\":\"a\",\"no.1\":\"b\"}', '{\"Conversation\":66,\"Grammar\":50,\"Reading\":66,\"Writing\":100,\"Error\":50}', 27, '2023-01-26 03:04:17');
+INSERT INTO `exams_meta` (`exam_meta_id`, `user_id`, `exam_id`, `answer`, `score`, `timeSpend`, `submit_at`) VALUES
+(1, 73, 1, '[{\"id\":1,\"choose\":\"a\",\"point\":1,\"category\":\"A\"},{\"id\":2,\"choose\":\"d\",\"point\":1,\"category\":\"A\"},{\"id\":3,\"choose\":\"c\",\"point\":1,\"category\":\"B\"},{\"id\":4,\"choose\":\"c\",\"point\":1,\"category\":\"B\"},{\"id\":5,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":6,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":7,\"choose\":\"b\",\"point\":0.5,\"category\":\"D\"},{\"id\":8,\"choose\":\"b\",\"point\":0.5,\"category\":\"D\"},{\"id\":9,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":10,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":11,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":12,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":13,\"choose\":\"b\",\"point\":0.5,\"category\":\"D\"},{\"id\":14,\"choose\":\"b\",\"point\":0.5,\"category\":\"D\"},{\"id\":15,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":16,\"choose\":\"c\",\"point\":1,\"category\":\"E\"}]', 14, 0, '2023-02-04 08:45:48'),
+(2, 73, 1, '[{\"id\":1,\"choose\":\"a\",\"point\":1,\"category\":\"A\"},{\"id\":2,\"choose\":\"d\",\"point\":1,\"category\":\"A\"},{\"id\":3,\"choose\":\"c\",\"point\":1,\"category\":\"B\"},{\"id\":4,\"choose\":\"c\",\"point\":1,\"category\":\"B\"},{\"id\":5,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":6,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":7,\"choose\":\"b\",\"point\":0.5,\"category\":\"D\"},{\"id\":8,\"choose\":\"b\",\"point\":0.5,\"category\":\"D\"},{\"id\":9,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":10,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":11,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":12,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":13,\"choose\":\"b\",\"point\":0.5,\"category\":\"D\"},{\"id\":14,\"choose\":\"b\",\"point\":0.5,\"category\":\"D\"},{\"id\":15,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":16,\"choose\":\"c\",\"point\":1,\"category\":\"E\"}]', 14, 0, '2023-02-04 08:46:26'),
+(3, 73, 1, '[{\"id\":1,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":2,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":3,\"choose\":\"c\",\"point\":1,\"category\":\"B\"},{\"id\":4,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":5,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":6,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":7,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":8,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":9,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":10,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":11,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":12,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":13,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":14,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":15,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":16,\"choose\":\"\",\"point\":0,\"category\":\"\"}]', 1, 0, '2023-02-04 08:49:54'),
+(4, 73, 1, '[{\"id\":1,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":2,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":3,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":4,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":5,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":6,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":7,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":8,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":9,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":10,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":11,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":12,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":13,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":14,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":15,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":16,\"choose\":\"\",\"point\":0,\"category\":\"\"}]', 1, 0, '2023-02-04 08:52:15'),
+(5, 73, 1, '[{\"id\":1,\"choose\":\"c\",\"point\":0,\"category\":\"A\"},{\"id\":2,\"choose\":\"d\",\"point\":1,\"category\":\"A\"},{\"id\":3,\"choose\":\"c\",\"point\":1,\"category\":\"B\"},{\"id\":4,\"choose\":\"c\",\"point\":1,\"category\":\"B\"},{\"id\":5,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":6,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":7,\"choose\":\"c\",\"point\":1,\"category\":\"D\"},{\"id\":8,\"choose\":\"c\",\"point\":1,\"category\":\"D\"},{\"id\":9,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":10,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":11,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":12,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":13,\"choose\":\"c\",\"point\":1,\"category\":\"D\"},{\"id\":14,\"choose\":\"c\",\"point\":1,\"category\":\"D\"},{\"id\":15,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":16,\"choose\":\"a\",\"point\":2,\"category\":\"E\"}]', 16, 0, '2023-02-04 08:56:23'),
+(6, 73, 1, '[{\"id\":1,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":2,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":3,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":4,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":5,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":6,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":7,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":8,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":9,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":10,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":11,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":12,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":13,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":14,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":15,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":16,\"choose\":\"\",\"point\":0,\"category\":\"\"}]', 0, 0, '2023-02-04 09:00:54'),
+(7, 73, 1, '[{\"id\":1,\"choose\":\"a\",\"point\":1,\"category\":\"A\"},{\"id\":2,\"choose\":\"d\",\"point\":1,\"category\":\"A\"},{\"id\":3,\"choose\":\"c\",\"point\":1,\"category\":\"B\"},{\"id\":4,\"choose\":\"c\",\"point\":1,\"category\":\"B\"},{\"id\":5,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":6,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":7,\"choose\":\"c\",\"point\":1,\"category\":\"D\"},{\"id\":8,\"choose\":\"c\",\"point\":1,\"category\":\"D\"},{\"id\":9,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":10,\"choose\":\"a\",\"point\":2,\"category\":\"E\"},{\"id\":11,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":12,\"choose\":\"c\",\"point\":1,\"category\":\"C\"},{\"id\":13,\"choose\":\"c\",\"point\":1,\"category\":\"D\"},{\"id\":14,\"choose\":\"c\",\"point\":1,\"category\":\"D\"},{\"id\":15,\"choose\":\"c\",\"point\":1,\"category\":\"E\"},{\"id\":16,\"choose\":\"a\",\"point\":2,\"category\":\"E\"}]', 18, 28, '2023-02-04 09:24:19'),
+(8, 73, 1, '[{\"id\":1,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":2,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":3,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":4,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":5,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":6,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":7,\"choose\":\"c\",\"point\":1,\"category\":\"D\"},{\"id\":8,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":9,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":10,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":11,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":12,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":13,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":14,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":15,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":16,\"choose\":\"\",\"point\":0,\"category\":\"\"}]', 1, 7, '2023-02-04 09:26:31'),
+(9, 73, 1, '[{\"id\":1,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":2,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":3,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":4,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":5,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":6,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":7,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":8,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":9,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":10,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":11,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":12,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":13,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":14,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":15,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":16,\"choose\":\"\",\"point\":0,\"category\":\"\"}]', 0, 2, '2023-02-04 09:26:39'),
+(10, 73, 1, '[{\"id\":1,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":2,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":3,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":4,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":5,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":6,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":7,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":8,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":9,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":10,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":11,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":12,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":13,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":14,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":15,\"choose\":\"\",\"point\":0,\"category\":\"\"},{\"id\":16,\"choose\":\"\",\"point\":0,\"category\":\"\"}]', 0, 4, '2023-02-04 09:42:45');
 
 -- --------------------------------------------------------
 
@@ -197,7 +206,8 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`payment_id`, `user_id`, `transaction`, `amount`, `net_amount`, `payment_method`, `products`, `status`, `paid_at`) VALUES
-(158, 73, 'trxn-daoylrrnla38780751', 100, 100, 'card', '[\"TGAT1 91 การสื่อสารภาษาอังกฤษ\"]', 'success', '2023-01-31 02:34:43');
+(158, 73, 'trxn-daoylrrnla38780751', 100, 100, 'card', '[\"TGAT1 91 การสื่อสารภาษาอังกฤษ\"]', 'success', '2023-01-31 02:34:43'),
+(159, 73, 'trxn-bavhgroqio73898697', 100, 100, 'card', '[\"NETSAT ภาษาไทย\"]', 'success', '2023-02-03 08:15:21');
 
 -- --------------------------------------------------------
 
@@ -578,7 +588,8 @@ CREATE TABLE `user_product_exam` (
 --
 
 INSERT INTO `user_product_exam` (`user_exams_id`, `user_id`, `product_id`) VALUES
-(69, 73, 10);
+(69, 73, 10),
+(70, 73, 1);
 
 -- --------------------------------------------------------
 
@@ -631,8 +642,8 @@ ALTER TABLE `exams`
 --
 ALTER TABLE `exams_meta`
   ADD PRIMARY KEY (`exam_meta_id`),
-  ADD KEY `fk user_id` (`user_id`),
-  ADD KEY `fk exam_id` (`exam_id`);
+  ADD KEY `exm user_id` (`user_id`),
+  ADD KEY `exm exam_id` (`exam_id`);
 
 --
 -- Indexes for table `expectation`
@@ -769,7 +780,7 @@ ALTER TABLE `exams`
 -- AUTO_INCREMENT for table `exams_meta`
 --
 ALTER TABLE `exams_meta`
-  MODIFY `exam_meta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `exam_meta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `expectation`
@@ -793,7 +804,7 @@ ALTER TABLE `major`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -853,7 +864,7 @@ ALTER TABLE `users_meta`
 -- AUTO_INCREMENT for table `user_product_exam`
 --
 ALTER TABLE `user_product_exam`
-  MODIFY `user_exams_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `user_exams_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -869,8 +880,8 @@ ALTER TABLE `user_role`
 -- Constraints for table `exams_meta`
 --
 ALTER TABLE `exams_meta`
-  ADD CONSTRAINT `fk exam_id` FOREIGN KEY (`exam_id`) REFERENCES `exams` (`exam_id`),
-  ADD CONSTRAINT `fk user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+  ADD CONSTRAINT `exm exam_id` FOREIGN KEY (`exam_id`) REFERENCES `exams` (`exam_id`),
+  ADD CONSTRAINT `exm user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `major`
