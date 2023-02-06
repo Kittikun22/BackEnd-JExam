@@ -1,27 +1,10 @@
-const express = require('express')
-const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json();
+const express = require("express");
 
-const { 
-    getAnswer,
-    saveAnswer,
-    getProduct,
-    getTaking,
-    getTakingAnswer,
-    getHistory,
-    getPoint,
-    getTakingAnalysis,
-    getExamscript} = require('../controllers/exam-control')
+const { getExamAnswer, getAnswered } = require("../controllers/exam-control");
 
-const examRoute = express.Router()
+const examRoute = express.Router();
 
-examRoute.post('/saveAnswer', jsonParser, saveAnswer)
-examRoute.post('/getAnswer', jsonParser, getAnswer)
-examRoute.post('/getProduct', jsonParser, getProduct)
-examRoute.post('/getTaking', jsonParser, getTaking)
-examRoute.post('/getTakingAnswer', jsonParser, getTakingAnswer)
-examRoute.post('/getTakingAnalysis', jsonParser, getTakingAnalysis)
-examRoute.post('/getHistory', jsonParser, getHistory)
-examRoute.post('/getPoint', jsonParser, getPoint)
-examRoute.post('/getExamscript', jsonParser, getExamscript)
-module.exports = examRoute
+examRoute.post("/getExamAnswer", getExamAnswer);
+examRoute.post("/getAnswered", getAnswered);
+
+module.exports = examRoute;

@@ -11,7 +11,8 @@ const fakepaymentRoutes = require('./routes/fakepayment-route')
 const userproductandexamsRoutes = require('./routes/user-product-exam-route')
 const facultyRoutes = require('./routes/faculty-route')
 const codePromotionRoutes = require('./routes/code-promotion-route')
-const examinationRoute = require('./routes/examination-route')
+const examinationRoutes = require('./routes/examination-route')
+const examRoutes = require('./routes/exam-route')
 
 const app = express();
 app.use(cors());
@@ -28,7 +29,8 @@ app.use(fakepaymentRoutes)
 app.use(userproductandexamsRoutes)
 app.use(facultyRoutes)
 app.use(codePromotionRoutes)
-app.use(examinationRoute)
+app.use(examinationRoutes)
+app.use(examRoutes)
 
 
 app.listen(8000, () => {
