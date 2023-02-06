@@ -7,7 +7,7 @@ const db = mysql.createConnection({
   database: process.env.database,
 });
 
-const getExamAnswer = (req, res) => {
+const getExamId = (req, res) => {
   const user_id = req.body.user_id;
   const product_id = req.body.product_id;
   db.query(
@@ -54,6 +54,6 @@ const getAnswered = (req, res) => {
 };
 
 module.exports = {
-  getExamAnswer,
+  getExamId,
   getAnswered
 };
