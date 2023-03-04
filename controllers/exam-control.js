@@ -53,7 +53,14 @@ const getAnswered = (req, res) => {
   );
 };
 
+const getHistory = (req, res) => {
+  const exam_id = req.body.exam_id
+  const user_id = req.body.user_id
+
+}
+
 module.exports = {
   getExamId,
-  getAnswered
+  getAnswered,
+  getHistory
 };

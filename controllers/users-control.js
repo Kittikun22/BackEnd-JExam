@@ -266,7 +266,7 @@ const ForgotPassword = (req, res) => {
 const paymentHistory = (req, res) => {
     const user_id = req.body.user_id
 
-    db.query('SELECT payment_id, transaction, amount, net_amount, payment_method, products, status, paid_at FROM payment WHERE user_id = ?',
+    db.query('SELECT payment_id, transaction, amount, net_amount, payment_method, products, status, paid_at FROM payment WHERE user_id = ? ORDER BY paid_at DESC',
         user_id,
         (err, result) => {
             if (err) {

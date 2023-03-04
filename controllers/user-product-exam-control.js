@@ -32,7 +32,7 @@ const UserProduct = (req, res) => {
             if (result.length == 0) {
                 res.send({ message: 'error' })
             } else {
-                db.query("SELECT product_exam.product_id, product_exam.exam_id, exam_name, exam_info, exam_content, products.pic FROM product_exam INNER JOIN exams ON product_exam.exam_id = exams.exam_id INNER JOIN products ON product_exam.product_id = products.product_id WHERE product_exam.product_id =?",
+                db.query("SELECT product_exam.product_id, product_exam.exam_id, exam_name, exam_info, exam_content,exam_operation, products.pic FROM product_exam INNER JOIN exams ON product_exam.exam_id = exams.exam_id INNER JOIN products ON product_exam.product_id = products.product_id WHERE product_exam.product_id =?",
                     [product_id],
                     (err, examresult) => {
                         if (err) {
