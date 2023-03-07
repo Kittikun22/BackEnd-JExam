@@ -7,9 +7,22 @@ const db = mysql.createConnection({
     database: process.env.database
 });
 
+// const getUserProductAndExams = (req, res) => {
+//     const user_id = req.body.user_id
+//     db.query("SELECT amount, blueprint, category_id, detail, name, pic, user_product_exam.product_id, subject_id FROM user_product_exam INNER JOIN products ON user_product_exam.product_id = products.product_id WHERE user_id= ?",
+//         [user_id],
+//         (err, result) => {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 res.send(result)
+//             }
+//         })
+// }
+
 const getUserProductAndExams = (req, res) => {
     const user_id = req.body.user_id
-    db.query("SELECT amount, blueprint, category_id, detail, name, pic, user_product_exam.product_id, subject_id FROM user_product_exam INNER JOIN products ON user_product_exam.product_id = products.product_id WHERE user_id= ?",
+    db.query("SELECT amount, blueprint, category_id, detail, name, pic, user_product_exam.product_id, subject_id, exams.exam_id FROM user_product_exam INNER JOIN products ON user_product_exam.product_id = products.product_id INNER JOIN product_exam ON user_product_exam.product_id = product_exam.product_id INNER JOIN exams ON product_exam.exam_id = exams.exam_id WHERE user_id= ?",
         [user_id],
         (err, result) => {
             if (err) {
