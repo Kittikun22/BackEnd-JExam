@@ -57,7 +57,7 @@ const getHistory = (req, res) => {
   const exam_id = req.body.exam_id
   const user_id = req.body.user_id
 
-  db.query("SELECT answer FROM exams_meta WHERE user_id= ? AND exam_id = ?",
+  db.query("SELECT answer, score, timeSpend, submit_at FROM exams_meta WHERE user_id= ? AND exam_id = ?",
     [user_id, exam_id],
     (err, result) => {
       if (err) {
