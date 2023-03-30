@@ -21,7 +21,7 @@ const getExamId = (req, res) => {
         res.send({ message: "error" });
       } else {
         db.query(
-          "SELECT product_exam.product_id, product_exam.exam_id, exam_name, exam_info, exam_content, products.pic FROM product_exam INNER JOIN exams ON product_exam.exam_id = exams.exam_id INNER JOIN products ON product_exam.product_id = products.product_id WHERE product_exam.product_id =?",
+          "SELECT product_exam.product_id, product_exam.exam_id, exams.exam_name, exams.exam_info, exams.exam_content, products.pic FROM product_exam INNER JOIN exams ON product_exam.exam_id = exams.exam_id INNER JOIN products ON product_exam.product_id = products.product_id WHERE product_exam.product_id =?",
           [product_id],
           (err, examresult) => {
             if (err) {
@@ -41,7 +41,7 @@ const getAnswered = (req, res) => {
   const user_id = req.body.user_id;
 
   db.query(
-    "SELECT answer FROM exams_meta WHERE user_id =? AND exam_id = ?",
+    "SELECT answer, score, fullScore, timeSpend, submit_at FROM exams_meta WHERE user_id =? AND exam_id = ?",
     [user_id, exam_id],
     (err, result) => {
       if (err) {
@@ -53,24 +53,7 @@ const getAnswered = (req, res) => {
   );
 };
 
-const getHistory = (req, res) => {
-  const exam_id = req.body.exam_id
-  const user_id = req.body.user_id
-
-  db.query("SELECT answer, score, timeSpend, submit_at FROM exams_meta WHERE user_id= ? AND exam_id = ?",
-    [user_id, exam_id],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(result)
-      }
-    })
-
-}
-
 module.exports = {
   getExamId,
   getAnswered,
-  getHistory
 };

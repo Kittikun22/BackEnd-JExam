@@ -12,10 +12,11 @@ const submitExam = (req, res) => {
     const exam_id = req.body.exam_id
     const answer = req.body.answer
     const score = req.body.score
+    const fullScore = req.body.fullScore
     const timeSpend = req.body.timeSpend
 
-    db.query("INSERT INTO exams_meta (user_id, exam_id, answer, score, timeSpend) VALUES (?,?,?,?,?)",
-        [user_id, exam_id, answer, score, timeSpend],
+    db.query("INSERT INTO exams_meta (user_id, exam_id, answer, score, fullScore, timeSpend) VALUES (?,?,?,?,?,?)",
+        [user_id, exam_id, answer, score, fullScore, timeSpend],
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -24,7 +25,7 @@ const submitExam = (req, res) => {
             }
         })
 }
-
+    
 
 module.exports = {
     submitExam
