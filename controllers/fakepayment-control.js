@@ -14,20 +14,20 @@ const fakepay = (req, res) => {
     const amount = req.body.amount
     const net_amount = req.body.net_amount
     const payment_method = req.body.payment_method
-    const products = req.body.products
+    const exams = req.body.exams
     const status = 'success'
 
-    const productName = products.map((val) => val.name)
-    const productArr = products.map((val) => '(' + user_id + ',' + val.product_id + ')')
+    const examName = exams.map((val) => val.name)
+    const examArr = exams.map((val) => '(' + user_id + ',' + val.exam_id + ')')
 
-    db.query("INSERT INTO payment (payment_id, user_id, transaction, amount, net_amount, payment_method, products,status) VALUES (?,?,?,?,?,?,?,?)",
-        [payment_id, user_id, transaction, amount, net_amount, payment_method, JSON.stringify(productName), status],
+    db.query("INSERT INTO payment (payment_id, user_id, transaction, amount, net_amount, payment_method, exams,status) VALUES (?,?,?,?,?,?,?,?)",
+        [payment_id, user_id, transaction, amount, net_amount, payment_method, JSON.stringify(examName), status],
         (err, result) => {
             if (err) {
                 console.log(err);
             } else {
-                db.query('INSERT INTO user_product_exam (user_id, product_id) VALUES ' + productArr.join(','),
-                    productArr,
+                db.query('INSERT INTO user_exams (user_id, exam_id) VALUES ' + examArr.join(','),
+                    examArr,
                     (err, result) => {
                         if (err) {
                             console.log(err);

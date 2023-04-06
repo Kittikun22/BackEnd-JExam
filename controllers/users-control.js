@@ -26,6 +26,7 @@ const createUser = (req, res) => {
     const parentJob = req.body.parentJob;
     const termCondition = req.body.termCondition;
     const cart = req.body.cart;
+    const favExam = [];
 
     bcrypt.hash(password, saltRounds, (err, hashPassword) => {
         db.query("INSERT INTO users (phone, password, fname, lname, email, user_role, role_id) VALUES (?,?,?,?,?,?,?)",
@@ -34,8 +35,8 @@ const createUser = (req, res) => {
                 if (err) {
                     console.log(err);
                 } else {
-                    db.query("INSERT INTO users_meta (user_id, grade, school, province, expectation, parentJob,cart, termCondition) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)"
-                        , [result.insertId, grade, school, province, expectation, parentJob, cart, termCondition]
+                    db.query("INSERT INTO users_meta (user_id, grade, school, province, expectation, parentJob,cart, termCondition, favExam) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?,?)"
+                        , [result.insertId, grade, school, province, expectation, parentJob, cart, termCondition, favExam]
                         , (err, resmeta) => {
                             if (err) {
                                 console.log(err);
@@ -266,7 +267,7 @@ const ForgotPassword = (req, res) => {
 const paymentHistory = (req, res) => {
     const user_id = req.body.user_id
 
-    db.query('SELECT payment_id, transaction, amount, net_amount, payment_method, products, status, paid_at FROM payment WHERE user_id = ? ORDER BY paid_at DESC',
+    db.query('SELECT payment_id, transaction, amount, net_amount, payment_method, exams, status, paid_at FROM payment WHERE user_id = ? ORDER BY paid_at DESC',
         user_id,
         (err, result) => {
             if (err) {

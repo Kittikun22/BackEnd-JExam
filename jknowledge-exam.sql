@@ -213,7 +213,7 @@ CREATE TABLE `payment` (
   `amount` float NOT NULL,
   `net_amount` float NOT NULL,
   `payment_method` varchar(255) NOT NULL,
-  `products` text NOT NULL,
+  `exams` text NOT NULL,
   `status` varchar(255) NOT NULL,
   `paid_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -222,7 +222,7 @@ CREATE TABLE `payment` (
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`payment_id`, `user_id`, `transaction`, `amount`, `net_amount`, `payment_method`, `products`, `status`, `paid_at`) VALUES
+INSERT INTO `payment` (`payment_id`, `user_id`, `transaction`, `amount`, `net_amount`, `payment_method`, `exams`, `status`, `paid_at`) VALUES
 (158, 73, 'trxn-daoylrrnla38780751', 100, 100, 'card', '[\"TGAT1 91 การสื่อสารภาษาอังกฤษ\"]', 'success', '2023-01-31 02:34:43'),
 (159, 73, 'trxn-bavhgroqio73898697', 100, 100, 'card', '[\"NETSAT ภาษาไทย\"]', 'success', '2023-02-03 08:15:21'),
 (160, 73, 'trxn-yvfyjnenzu11619186', 100, 100, 'card', '[\"NETSAT คณิตศาสตร์\"]', 'success', '2023-02-09 06:45:50');
@@ -230,10 +230,10 @@ INSERT INTO `payment` (`payment_id`, `user_id`, `transaction`, `amount`, `net_am
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Table structure for table `exams`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE `exams` (
   `product_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `amount` int(11) NOT NULL,
@@ -245,10 +245,10 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `products`
+-- Dumping data for table `exams`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `amount`, `detail`, `blueprint`, `pic`, `category_id`, `subject_id`) VALUES
+INSERT INTO `exams` (`product_id`, `name`, `amount`, `detail`, `blueprint`, `pic`, `category_id`, `subject_id`) VALUES
 (1, 'NETSAT ภาษาไทย', 100, 'ความฉลาดรู้ทั่วไปด้านภาษาไทย', '[{ \"topic\": \"หมวดการอ่านภาษาไทย (20 คะแนน)\", \"subtopics\": [{ \"subtopic\": \"ความหมายของคำวลี ประโยค และข้อความ\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }, { \"detail\": \"\" } ] }, { \"subtopic\": \"ถ้อยคำหรือข้อความแสดงเจตนาต่างๆ\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }, { \"detail\": \"\" } ] }, { \"subtopic\": \"การสรุปใจความสำคัญ\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }, { \"detail\": \"\" } ] }, { \"subtopic\": \"ข้อเท็จจริงและข้อคิดเห็น\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }, { \"detail\": \"\" } ] }, { \"subtopic\": \"การอ่านตีความและประเมินคุณค่า\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }, { \"detail\": \"\" } ] }, { \"subtopic\": \"การอ่านสื่อสิ่งพิมพ์และสื่ออิเล็กทรอนิกส์\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }, { \"detail\": \"\" } ] }] }, { \"topic\": \"หมวดการเขียนภาษาไทย (20 คะแนน)\", \"subtopics\": [{ \"subtopic\": \"การใช้คำวลี ประโยค และข้อความ\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }, { \"detail\": \"\" } ] }, { \"subtopic\": \"การเชื่อมโยงความ\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }, { \"detail\": \"\" } ] }, { \"subtopic\": \"การใช้ภาษาในระดับต่างๆ\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }, { \"detail\": \"\" } ] }, { \"subtopic\": \"การเขียนย่อหน้า\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }, { \"detail\": \"\" } ] }] }, { \"topic\": \"คะแนนเต็ม 40 คะแนน\", \"subtopics\": [{ \"subtopic\": \"\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }] }] } ]', 'images/exams/netsat/NETSAT_Thai.png', 4, 5),
 (2, 'NETSAT ภาษาอังกฤษ', 100, 'ความฉลาดรู้ทั่วไปด้านภาษาอังกฤษ', '[ { \"topic\": \"Reading (30 Points)\", \"subtopics\": [{ \"subtopic\": \"Including 3 Parts\", \"explanation\": \"\", \"details\": [{ \"detail\": \"Reading Instructions\" }, { \"detail\": \"Reading Correspondence\" }, { \"detail\": \"Reading for Information and Argument\" } ] }] }, { \"topic\": \"Writing (30 Points)\", \"subtopics\": [{ \"subtopic\": \"Including 2 Part\", \"explanation\": \"\", \"details\": [{ \"detail\": \"Sentence Completion\" }, { \"detail\": \"Error Detection\" } ] }] }, { \"topic\": \"คะแนนเต็ม 60 คะแนน\", \"subtopics\": [{ \"subtopic\": \"\", \"explanation\": \"\", \"details\": [{ \"detail\": \"\" }] }] } ]', 'images/exams/netsat/NETSAT_Eng.png', 4, 6),
 (3, 'NETSAT คณิตศาสตร์', 100, 'ความฉลาดรู้ทั่วไปด้านคณิตศาสตร์', NULL, 'images/exams/netsat/NETSAT_Math.png', 4, 1),
@@ -698,9 +698,9 @@ ALTER TABLE `payment`
   ADD KEY `foreign key user_id` (`user_id`);
 
 --
--- Indexes for table `products`
+-- Indexes for table `exams`
 --
-ALTER TABLE `products`
+ALTER TABLE `exams`
   ADD PRIMARY KEY (`product_id`),
   ADD KEY `category_id` (`category_id`),
   ADD KEY `subject_id` (`subject_id`);
@@ -839,9 +839,9 @@ ALTER TABLE `payment`
   MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT for table `exams`
 --
-ALTER TABLE `products`
+ALTER TABLE `exams`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
@@ -934,9 +934,9 @@ ALTER TABLE `payment`
   ADD CONSTRAINT `foreign key user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Constraints for table `products`
+-- Constraints for table `exams`
 --
-ALTER TABLE `products`
+ALTER TABLE `exams`
   ADD CONSTRAINT `category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE SET NULL,
   ADD CONSTRAINT `subject_id` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`) ON DELETE SET NULL;
 
@@ -944,7 +944,7 @@ ALTER TABLE `products`
 -- Constraints for table `product_exam`
 --
 ALTER TABLE `product_exam`
-  ADD CONSTRAINT `product_exam_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `product_exam_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `exams` (`product_id`),
   ADD CONSTRAINT `product_exam_ibfk_2` FOREIGN KEY (`exam_id`) REFERENCES `exams` (`exam_id`);
 
 --
@@ -967,7 +967,7 @@ ALTER TABLE `users_meta`
 -- Constraints for table `user_product_exam`
 --
 ALTER TABLE `user_product_exam`
-  ADD CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `exams` (`product_id`),
   ADD CONSTRAINT `user_product_exam_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 COMMIT;
 

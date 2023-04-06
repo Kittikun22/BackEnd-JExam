@@ -8,9 +8,9 @@ const db = mysql.createConnection({
 });
 
 const getMyExams = (req, res) => {
-    const product_id = req.body.product_id
-    db.query("SELECT * FROM products WHERE id in (?)",
-        [product_id],
+    const exam_id = req.body.exam_id
+    db.query("SELECT * FROM exams WHERE id in (?)",
+        [exam_id],
         (err, result) => {
             if (err) {
                 console.log(err);

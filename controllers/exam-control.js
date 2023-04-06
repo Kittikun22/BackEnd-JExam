@@ -7,35 +7,6 @@ const db = mysql.createConnection({
   database: process.env.database,
 });
 
-const getExamId = (req, res) => {
-  const user_id = req.body.user_id;
-  const product_id = req.body.product_id;
-  db.query(
-    "SELECT * FROM user_product_exam  INNER JOIN product_exam ON user_product_exam.product_id = product_exam.product_id INNER JOIN exams ON exams.exam_id = product_exam.exam_id WHERE user_id=? AND user_product_exam.product_id = ?",
-    [user_id, product_id],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      }
-      if (result.length == 0) {
-        res.send({ message: "error" });
-      } else {
-        db.query(
-          "SELECT product_exam.product_id, product_exam.exam_id, exams.exam_name, exams.exam_info, exams.exam_content, products.pic FROM product_exam INNER JOIN exams ON product_exam.exam_id = exams.exam_id INNER JOIN products ON product_exam.product_id = products.product_id WHERE product_exam.product_id =?",
-          [product_id],
-          (err, examresult) => {
-            if (err) {
-              console.log(err);
-            } else {
-              res.send({ message: "ok", result: examresult });
-            }
-          }
-        );
-      }
-    }
-  );
-};
-
 const getAnswered = (req, res) => {
   const exam_id = req.body.exam_id;
   const user_id = req.body.user_id;
@@ -53,7 +24,171 @@ const getAnswered = (req, res) => {
   );
 };
 
+
+const getAllExam = (req, res) => {
+  db.query(
+    "SELECT exam_id , name, amount, detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(result);
+      }
+    }
+  );
+};
+
+const getExam = (req, res) => {
+  const exam_id = req.params.exam_id;
+  db.query(
+    "SELECT exam_id, name, amount, detail, blueprint, pic, subject_name, category_name, favorite FROM exams INNER JOIN subject ON exams.subject_id = subject.subject_id INNER JOIN category ON exams.category_id = category.category_id  WHERE exam_id = ?",
+    [exam_id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+};
+
+const updateSelectItem = (req, res) => {
+  const user_id = req.body.user_id;
+  const itemSelected = req.body.itemSelected;
+
+  db.query(
+    "UPDATE users_meta SET itemSelected = ? WHERE user_id =? ",
+    [itemSelected, user_id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+};
+
+const getFavExams = (req, res) => {
+  const user_id = req.body.user_id
+  db.query("SELECT fav_exam FROM users_meta WHERE user_id = ?",
+    user_id,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result)
+      }
+    })
+}
+
+const updateFavExams = (req, res) => {
+  const user_id = req.body.user_id
+  const myFavExam = req.body.myFavExam
+
+  db.query(
+    "UPDATE users_meta SET fav_exam = ? WHERE user_id = ?",
+    [myFavExam, user_id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+};
+
+const increaseFavExams = (req, res) => {
+  const exam_id = req.body.exam_id
+  db.query("UPDATE exams SET favorite = favorite + 1 WHERE exam_id = ?",
+    exam_id,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result)
+      }
+    })
+}
+
+const getTGAT = (req, res) => {
+  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams WHERE category_id = 1", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(result);
+    }
+  });
+};
+
+const getTPAT = (req, res) => {
+  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams WHERE category_id = 2", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(result);
+    }
+  });
+};
+
+const getALEVEL = (req, res) => {
+  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams WHERE category_id = 3", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(result);
+    }
+  });
+};
+
+const getNETSAT = (req, res) => {
+  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams WHERE category_id = 4"
+    , (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(result);
+      }
+    });
+};
+
+const getMostFav = (req, res) => {
+  db.query("SELECT exam_id , name, amount, detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams ORDER BY favorite DESC LIMIT 10"
+    , (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(result)
+      }
+    }
+  )
+}
+
+const getNewestExam = (req, res) => {
+  db.query("SELECT exam_id , name, amount, detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams ORDER BY release_at DESC LIMIT 10 "
+    , (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(result)
+      }
+    })
+}
+
 module.exports = {
-  getExamId,
   getAnswered,
+  getAllExam,
+  getTGAT,
+  getTPAT,
+  getALEVEL,
+  getNETSAT,
+  getExam,
+  updateSelectItem,
+  getFavExams,
+  increaseFavExams,
+  updateFavExams,
+  getMostFav,
+  getNewestExam
 };

@@ -4,7 +4,8 @@ const {
     updateCart,
     getCart,
     getTest,
-    getSelectedItem
+    getSelectedItem,
+    getExamInCart
 } = require('../controllers/cart-control')
 
 const cartRoute = express.Router()
@@ -13,6 +14,7 @@ cartRoute.post('/getCart', getCart)
 cartRoute.put('/updateCart', updateCart)
 cartRoute.get('/getTest', getTest)
 cartRoute.post('/getSelectedItem', getSelectedItem)
+cartRoute.post('/getExamInCart', getExamInCart)
 
 
 module.exports = cartRoute

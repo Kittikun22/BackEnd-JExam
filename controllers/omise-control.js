@@ -15,7 +15,7 @@ var omise = require('omise')({
 const checkoutCreditCard = async (req, res, next) => {
     const { email, name, amount, token } = req.body
     const user_id = req.body.user_id
-    const products = req.body.products
+    const exams = req.body.exams
     const payment_method = req.body.payment_method
     try {
         const customer = await omise.customers.create({
@@ -30,8 +30,8 @@ const checkoutCreditCard = async (req, res, next) => {
             customer: customer.id
         });
 
-        db.query("INSERT INTO payment (user_id,transaction, amount, net_amount, payment_method, products, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
-            [user_id, charge.transaction, charge.amount / 100, charge.net / 100, payment_method, products, charge.status], (err, result) => {
+        db.query("INSERT INTO payment (user_id,transaction, amount, net_amount, payment_method, exams, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            [user_id, charge.transaction, charge.amount / 100, charge.net / 100, payment_method, exams, charge.status], (err, result) => {
                 if (err) {
                     console.log(err);
                 }

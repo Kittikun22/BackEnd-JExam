@@ -58,9 +58,30 @@ const getTest = (req, res) => {
         })
 }
 
+const getExamInCart = (req, res) => {
+    const exam_id = req.body.exam_id;
+
+    if (exam_id?.length === 0) {
+        //
+    } else {
+        db.query(
+            "SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id FROM exams WHERE exam_id in (?)",
+            [exam_id],
+            (err, result) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.send(result);
+                }
+            }
+        );
+    }
+};
+
 module.exports = {
     updateCart,
     getCart,
     getTest,
-    getSelectedItem
+    getSelectedItem,
+    getExamInCart
 };
