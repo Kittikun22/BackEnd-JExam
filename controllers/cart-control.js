@@ -47,17 +47,6 @@ const updateCart = (req, res) => {
         });
 };
 
-const getTest = (req, res) => {
-    db.query("SELECT exam, info FROM test WHERE test_id = 1",
-        (err, result) => {
-            if (err) {
-                console.log(err);
-            } else {
-                res.send(result[0])
-            }
-        })
-}
-
 const getExamInCart = (req, res) => {
     const exam_id = req.body.exam_id;
 
@@ -81,7 +70,6 @@ const getExamInCart = (req, res) => {
 module.exports = {
     updateCart,
     getCart,
-    getTest,
     getSelectedItem,
     getExamInCart
 };
