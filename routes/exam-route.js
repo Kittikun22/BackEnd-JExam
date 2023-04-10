@@ -13,7 +13,8 @@ const {
     increaseFavExams,
     updateFavExams,
     getMostFav,
-    getNewestExam
+    getNewestExam,
+    decreaseFavExams
 } = require("../controllers/exam-control");
 
 const examRoute = express.Router();
@@ -28,6 +29,7 @@ examRoute.get('/getExam/:exam_id', getExam)
 examRoute.put('/updateSelectItem', updateSelectItem)
 examRoute.post("/getFavExams", getFavExams);
 examRoute.put('/increaseFavExams', increaseFavExams)
+examRoute.put('/decreaseFavExams', decreaseFavExams)
 examRoute.put('/updateFavExams', updateFavExams)
 examRoute.get('/getMostFav', getMostFav)
 examRoute.get('/getNewestExam', getNewestExam)

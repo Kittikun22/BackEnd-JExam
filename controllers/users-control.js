@@ -2,7 +2,7 @@ const mysql = require('mysql');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
-const secret = 'Jknowledge-login-nodejs-login-21-10-22'
+// const secret = 'Jknowledge-login-nodejs-login-21-10-22'
 
 const db = mysql.createConnection({
     user: process.env.user,
@@ -80,7 +80,7 @@ const Signin = (req, res) => {
                             province: result[0].province,
                             dream1: result[0].dream1,
                             dream2: result[0].dream2
-                        }, secret);
+                        }, process.env.JWT_SECRET);
                         const userInfo = [{
                             phone: result[0].phone,
                             user_id: result[0].user_id,
@@ -126,7 +126,7 @@ const phoneAvailable = (req, res) => {
 const authToken = (req, res) => {
     try {
         const token = req.body.headers.Authorization.split(' ')[1];
-        const decoded = jwt.verify(token, secret);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         res.send({ status: 'ok', decoded });
     } catch (err) {
         res.send({ status: 'error', message: err.message })

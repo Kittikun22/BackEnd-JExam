@@ -113,6 +113,19 @@ const increaseFavExams = (req, res) => {
     })
 }
 
+const decreaseFavExams = (req, res) => {
+  const exam_id = req.body.exam_id
+  db.query("UPDATE exams SET favorite = favorite - 1 WHERE exam_id = ?",
+    exam_id,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result)
+      }
+    })
+}
+
 const getTGAT = (req, res) => {
   db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams WHERE category_id = 1", (err, result) => {
     if (err) {
@@ -190,5 +203,6 @@ module.exports = {
   increaseFavExams,
   updateFavExams,
   getMostFav,
-  getNewestExam
+  getNewestExam,
+  decreaseFavExams
 };
