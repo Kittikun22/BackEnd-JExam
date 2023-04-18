@@ -27,7 +27,7 @@ const getAnswered = (req, res) => {
 
 const getAllExam = (req, res) => {
   db.query(
-    "SELECT exam_id , name, amount, detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams",
+    "SELECT exam_id , name, amount, detail, blueprint, pic, category_id, subject_id, favorite, release_at, exam_content FROM exams",
     (err, result) => {
       if (err) {
         console.log(err);
@@ -41,7 +41,7 @@ const getAllExam = (req, res) => {
 const getExam = (req, res) => {
   const exam_id = req.params.exam_id;
   db.query(
-    "SELECT exam_id, name, amount, detail, blueprint, pic, subject_name, category_name, favorite FROM exams INNER JOIN subject ON exams.subject_id = subject.subject_id INNER JOIN category ON exams.category_id = category.category_id  WHERE exam_id = ?",
+    "SELECT exam_id, name, amount, detail, blueprint, pic, subject_name, category_name, favorite, exam_content FROM exams INNER JOIN subject ON exams.subject_id = subject.subject_id INNER JOIN category ON exams.category_id = category.category_id  WHERE exam_id = ?",
     [exam_id],
     (err, result) => {
       if (err) {
@@ -127,7 +127,7 @@ const decreaseFavExams = (req, res) => {
 }
 
 const getTGAT = (req, res) => {
-  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams WHERE category_id = 1", (err, result) => {
+  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at, exam_content FROM exams WHERE category_id = 1", (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -137,7 +137,7 @@ const getTGAT = (req, res) => {
 };
 
 const getTPAT = (req, res) => {
-  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams WHERE category_id = 2", (err, result) => {
+  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at, exam_content FROM exams WHERE category_id = 2", (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -147,7 +147,7 @@ const getTPAT = (req, res) => {
 };
 
 const getALEVEL = (req, res) => {
-  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams WHERE category_id = 3", (err, result) => {
+  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at, exam_content FROM exams WHERE category_id = 3", (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -157,7 +157,7 @@ const getALEVEL = (req, res) => {
 };
 
 const getNETSAT = (req, res) => {
-  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams WHERE category_id = 4"
+  db.query("SELECT exam_id , name, amount,  detail, blueprint, pic, category_id, subject_id, favorite, release_at, exam_content FROM exams WHERE category_id = 4"
     , (err, result) => {
       if (err) {
         console.log(err);
@@ -168,7 +168,7 @@ const getNETSAT = (req, res) => {
 };
 
 const getMostFav = (req, res) => {
-  db.query("SELECT exam_id , name, amount, detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams ORDER BY favorite DESC LIMIT 10"
+  db.query("SELECT exam_id , name, amount, detail, blueprint, pic, category_id, subject_id, favorite, release_at, exam_content FROM exams ORDER BY favorite DESC LIMIT 10"
     , (err, result) => {
       if (err) {
         console.log(err);
@@ -180,7 +180,7 @@ const getMostFav = (req, res) => {
 }
 
 const getNewestExam = (req, res) => {
-  db.query("SELECT exam_id , name, amount, detail, blueprint, pic, category_id, subject_id, favorite, release_at FROM exams ORDER BY release_at DESC LIMIT 10 "
+  db.query("SELECT exam_id , name, amount, detail, blueprint, pic, category_id, subject_id, favorite, release_at, exam_content FROM exams ORDER BY release_at DESC LIMIT 10 "
     , (err, result) => {
       if (err) {
         console.log(err);
