@@ -12,11 +12,16 @@ const facultyRoutes = require('./routes/faculty-route')
 const codePromotionRoutes = require('./routes/code-promotion-route')
 const examinationRoutes = require('./routes/examination-route')
 const examRoutes = require('./routes/exam-route')
+const imageRoutes = require('./routes/image-route')
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
+
+const path = require('path')
+
+app.use('/public', express.static(path.join(__dirname, 'public')))
 
 app.use(userRoutes);
 app.use(otpRoutes)
@@ -29,6 +34,7 @@ app.use(facultyRoutes)
 app.use(codePromotionRoutes)
 app.use(examinationRoutes)
 app.use(examRoutes)
+app.use(imageRoutes)
 
 
 app.listen(8000, () => {
