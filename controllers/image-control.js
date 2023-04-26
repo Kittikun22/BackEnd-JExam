@@ -22,7 +22,7 @@ const submitSlip = (req, res) => {
     const user_id = req.body.user_id
     const amount = req.body.amount
     const net_amount = req.body.net_amount
-    const status = "ยังไม่อนุมัติ"
+    const status = "รออนุมัติ"
 
     const examIdArr = exams.map((val) => val.exam_id)
 
