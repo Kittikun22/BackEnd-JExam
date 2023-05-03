@@ -37,8 +37,23 @@ const submitSlip = (req, res) => {
         })
 }
 
+const uploadExamPic = (req, res) => {
+    var host = req.headers.host;
+    var protocol = req.protocol
+
+    res.send({ message: 'upload successfully', image_src: protocol + '://' + host + '/' + req.file.path })
+}
+
+const uploadQuestionPic = (req, res) => {
+    var host = req.headers.host;
+    var protocol = req.protocol
+
+    res.send({ message: 'upload successfully', image_src: protocol + '://' + host + '/' + req.file.path })
+}
 
 module.exports = {
     uploadSlip,
-    submitSlip
+    submitSlip,
+    uploadExamPic,
+    uploadQuestionPic
 }
